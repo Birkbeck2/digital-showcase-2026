@@ -8,13 +8,25 @@
 
 /* Home page styles */
 
+:root {
+  --view-transition-duration: 0.5s;
+  --view-transition-timing-function: ease-in-out;
+  --colour-bbk-brown: #814812;
+}
+
 .showcase-header {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	align-items: center;
 	justify-content: center;
-	gap: 10rem;
-	padding: 10rem;
+	gap: 5rem;
+	padding: 5rem;
+	font-family: "Inter", "Arial Narrow Bold", sans-serif;
+	font-size: clamp(1rem, 2vw + 2rem, 4rem);
+	font-style: italic;
+	font-weight: 500;
+	color: var(--colour-bbk-brown);
+	text-align: center;
 }
 
 .showcase-header img {
@@ -22,25 +34,14 @@
 	height: auto;
 }
 
-.showcase-header h1 {
-	font-family: "Inter", "Arial Narrow Bold", sans-serif;
-	font-size: clamp(2rem, 3vw + 2rem, 4rem);
-	font-style: italic;
-	font-weight: 500;
-	color: #905743;
-	text-align: center;
-}
-
-
-footer p {
+.showcase-footer {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: small;
-	color: #7e7e7e;
+	color: var(--colour-bbk-brown);
 	text-align: center;
 }
 
-/* Showcase flexbox layout */
-.projects {
+.showcase-main {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -48,6 +49,10 @@ footer p {
 	gap: 5rem;
 	width: 100%;
 	margin: 0 auto;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 550;
+	color: contrast(var(--colour-bbk-brown), black);
 }
 
 a.link-class {
@@ -57,8 +62,9 @@ a.link-class {
 }
 
 #edmundmulligan {
-	background-image: url("../images/edmundmulligan.svg");
-
+	background-image: url("../images/edmundmulligan.png");
+	background-size: cover;
+	background-position: center center;
 }
 
 
@@ -70,30 +76,17 @@ a.link-class {
 }
 
 .item-info {
-	background: rgb(224, 146, 255);
+	background: var(--colour-bbk-brown);
+	color: contrast(var(--colour-bbk-brown), white);
 	opacity: 0%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
 	justify-content: center;
 	align-items: center;
-	min-width: 400px;
-	min-height: 400px;
-	transition: opacity 1s ease;
-}
-
-.item-info:hover {
-	opacity: 68%;
-}
-
-.item-info h2 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 550;
-	color: #ffffff;
-}
-
-.item-info span {
-	color: #ffffff;
+	min-width: 25rem;
+	min-height: 25rem;
+	transition: opacity var(--view-transition-duration) var(--view-transition-timing-function);
 	font-family: "Inter", "Arial Narrow Bold", sans-serif;
 	font-style: italic;
 	font-weight: 500;
@@ -101,38 +94,6 @@ a.link-class {
 	padding-top: 5px;
 }
 
-/* Media queries */
-@media screen and (max-width: 900px) {
-	main h1 {
-		font-size: 3.5em;
-	}
-	.projects .item {
-		min-width: 90%;
-		min-height: 500px;
-	}
-	.item-info {
-		min-width: 90%;
-		min-height: 500px;
-	}
-}
-
-@media screen and (max-width: 600px) {
-	main h1 {
-		font-size: 2.5em;
-	}
-	.projects .item {
-		min-width: 90%;
-		min-height: 400px;
-	}
-	.item-info {
-		min-width: 90%;
-		min-height: 400px;
-	}
-}
-
-@media screen and (max-width: 440px) {
-	main h1 {
-		font-size: 2em;
-		line-height: 120%;
-	}
+.item-info:hover {
+	opacity: 68%;
 }
