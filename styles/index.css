@@ -52,7 +52,7 @@
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 550;
-	color: contrast(var(--colour-bbk-brown), black);
+	color: white;
 }
 
 a.link-class {
@@ -77,11 +77,10 @@ a.link-class {
 
 .item-info {
 	background: var(--colour-bbk-brown);
-	color: contrast(var(--colour-bbk-brown), white);
+	color: white;
 	opacity: 0%;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	min-width: 25rem;
@@ -95,5 +94,5 @@ a.link-class {
 }
 
 .item-info:hover {
-	opacity: 68%;
+	opacity: 80%;
 }
