@@ -1,0 +1,29 @@
+/*
+ *********************************************************************************************************************
+ * File       : students/edmundmulligan/edmundmulligan.css
+ * Description:
+ *   Student-specific styles for Edmund Mulligan's showcase page.
+ *********************************************************************************************************************
+ */
+
+.edmundmulligan-page {
+
+  .showcase-main {
+    grid-template-columns: minmax(17.5rem, 56.25rem);
+    max-width: 61.25rem;
+  }
+
+  @media (max-width: 56.25rem) {
+    .showcase-main {
+      grid-template-columns: 1fr;
+    }
+
+    .showcase-header {
+      .showcase-subtitle {
+        grid-column: auto;
+        justify-self: center;
+        align-self: center;
+      }
+    }
+  }
+}
