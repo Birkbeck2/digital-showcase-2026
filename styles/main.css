@@ -200,11 +200,12 @@ a.link-class {
 	background-size: cover;
 	background-position: center center;
 	min-height: 25rem;
-	min-width: 25rem;
+	min-width: min(25rem, 100%);
 }
 
 .showcase-main > div {
 	overflow: hidden;
+	min-width: 0;
 	border: 0.0625rem solid var(--colour-border);
 	border-radius: 0.75rem;
 	box-shadow: 0 0.75rem 1.5625rem var(--colour-shadow-soft);
@@ -219,7 +220,8 @@ a.link-class {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	min-width: 25rem;
+	width: 100%;
+	min-width: min(25rem, 100%);
 	min-height: 25rem;
 	transition: opacity var(--view-transition-duration) var(--view-transition-timing-function);
 	font-family: "Inter", "Arial Narrow Bold", sans-serif;
