@@ -248,4 +248,9 @@ a.link-class {
 			margin: 0 auto;
 		}
 	}
+
+	.projects .item,
+	.item-info {
+		min-height: 20rem;
+	}
 }
