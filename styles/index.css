@@ -12,6 +12,24 @@
   --view-transition-duration: 0.5s;
   --view-transition-timing-function: ease-in-out;
   --colour-bbk-brown: #814812;
+  --colour-paper: #faf6ef;
+  --colour-paper-deep: #f3eadc;
+  --colour-ink: #2b1a10;
+  --colour-panel: #fffdf8;
+  --colour-border: #d5c1a9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(129, 72, 18, 0.12) 0%, rgba(129, 72, 18, 0) 45%),
+    linear-gradient(180deg, #f8f1e5 0%, var(--colour-paper) 38%, var(--colour-paper-deep) 100%);
+  color: var(--colour-ink);
+  font-family: "Inter", "Arial Narrow Bold", Arial, Helvetica, sans-serif;
 }
 
 .showcase-header {
@@ -19,10 +37,12 @@
 	grid-template-columns: auto 1fr;
 	align-items: center;
 	justify-content: center;
-	gap: 5rem;
-	padding: 5rem;
+	gap: 2rem;
+	padding: clamp(1rem, 3vw, 3rem);
+	margin: 0 auto;
+	max-width: 1100px;
 	font-family: "Inter", "Arial Narrow Bold", sans-serif;
-	font-size: clamp(1rem, 2vw + 2rem, 4rem);
+	font-size: clamp(1rem, 1.6vw + 1.4rem, 3rem);
 	font-style: italic;
 	font-weight: 500;
 	color: var(--colour-bbk-brown);
@@ -30,41 +50,61 @@
 }
 
 .showcase-header img {
-	width: auto;
+	width: clamp(110px, 18vw, 180px);
 	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.showcase-header h1 {
+	margin: 0;
+	font-size: clamp(1.15rem, 1vw + 1rem, 1.85rem);
+	line-height: 1.1;
+	white-space: nowrap;
 }
 
 .showcase-footer {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: small;
+	margin: 1.5rem 0 1rem;
+	font-family: "Inter", Arial, Helvetica, sans-serif;
+	font-size: 0.85rem;
 	color: var(--colour-bbk-brown);
 	text-align: center;
 }
 
 .showcase-main {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
 	justify-content: center;
-	gap: 5rem;
+	align-items: start;
+	gap: clamp(1rem, 2.5vw, 2rem);
 	width: 100%;
+	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 1rem 2rem;
 	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Inter", Arial, Helvetica, sans-serif;
 	font-weight: 550;
-	color: white;
+	color: var(--colour-ink);
 }
 
 a.link-class {
 	display: inline-block;
 	width: 100%;
 	height: 100%;
+	color: var(--colour-bbk-brown);
 }
 
 #edmundmulligan {
-	background-image: url("../images/edmundmulligan.png");
-	background-size: cover;
-	background-position: center center;
+	background-image:
+		url("../images/edmundmulligan.png"),
+		radial-gradient(circle at 15% 15%, rgba(129, 72, 18, 0.12) 0%, rgba(129, 72, 18, 0) 45%),
+		linear-gradient(180deg, #f8f1e5 0%, var(--colour-paper) 38%, var(--colour-paper-deep) 100%);
+	background-size: contain, auto, auto;
+	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-position: center center, center center, center center;
+	background-color: var(--colour-paper);
+	border: none;
+	box-shadow: none;
 }
 
 
@@ -73,6 +113,14 @@ a.link-class {
 	background-position: center center;
 	min-height: 400px;
 	min-width: 400px;
+}
+
+.showcase-main > div {
+	overflow: hidden;
+	border: 1px solid var(--colour-border);
+	border-radius: 12px;
+	box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+	background: var(--colour-panel);
 }
 
 .item-info {
@@ -90,9 +138,24 @@ a.link-class {
 	font-style: italic;
 	font-weight: 500;
 	font-size: 1.25em;
-	padding-top: 5px;
+	padding: 1rem;
 }
 
 .item-info:hover {
 	opacity: 80%;
+}
+
+@media (max-width: 900px) {
+	.showcase-header {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.showcase-header h1 {
+		white-space: normal;
+	}
+
+	.showcase-header img {
+		margin: 0 auto;
+	}
 }
