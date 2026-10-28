@@ -1,0 +1,358 @@
+/* Custom CSS */
+/* Design System Inspired by - https://getdesign.md/claude/design-md */
+:root {
+    /* Backgrounds */
+    --bg-white: #ffffff;
+    --bg-cream: #e4e0d6;
+    --bg-terracotta: #c96442;
+    --bg-coral: #d97757;
+    --bg-stat: #f5f4f0;
+
+    /* Text */
+    --text-black: #111111;
+    --text-white: #ffffff;
+    --text-charcoal: #4d4c48;
+    --text-olive: #5e5d59;
+    --text-stone: #87867f;
+    --text-silver: #b0aea5;
+
+    
+    /* Fonts and Layout */
+    --font-serif: "Source Serif 4", serif;
+    --font-sans: "Open Sans", sans-serif;
+    --max-width: 1000px;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* Skeleton loading colours */
+    --skeleton-start: #c5cdd4;
+    --skeleton-end: #eaecee;
+
+    /* Error colour */
+    --color-error: #cd5c5c;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+}
+
+/* Body */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--text-black);
+    color: var(--text-white);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 100;
+}
+
+/* Show the skip link when focused */
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header */
+header {
+    padding: 48px 20px 24px;
+    text-align: center;
+
+    & h1 {
+        font-size: 3.5rem;
+        letter-spacing: 0.02em;
+        font-weight: 600;
+        color: var(--text-charcoal);
+    }
+
+    & p {
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        color: var(--text-stone);
+    }
+}
+
+/* Main Content */
+#main-content {
+    flex: 1;
+    padding: 20px;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+
+    & h2 {
+        font-size: 2.2rem;
+        font-weight: 500;
+        text-align: center;
+        color: var(--text-charcoal);
+        margin: 20px 0;
+    }
+
+}
+
+/* City Section */
+.city-section {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & #city-form {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        max-width: 32rem;
+    }
+
+    & #city-input {
+        flex: 1;
+        font-size: 0.9rem;
+        padding: 8px 14px;
+        border: 0.5px solid var(--text-stone);
+        border-radius: var(--radius-sm);
+        background: var(--bg-white);
+        color: var(--text-black);
+    }
+
+    & #city-input::placeholder {
+        color: var(--text-silver);
+    }
+
+    & #city-input:focus {
+        outline: none;
+        border-color: var(--text-charcoal);
+    }
+
+    & #submit-btn {
+        background: var(--bg-coral);
+        border: 0.5px solid var(--bg-coral);
+        color: var(--text-white);
+        border-radius: var(--radius-sm);
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    & #submit-btn:hover {
+        background-color: var(--bg-terracotta);
+    }
+}
+
+/* Error message */
+#error-message {
+    color: var(--color-error);
+    font-size: 0.85rem;
+    margin-top: 8px;
+    text-align: center;
+    display:none
+}
+
+/* Skeleton loading */
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.7rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.skeleton-text__body {
+  width: 75%;
+}
+
+/* Skeleton animation */
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--skeleton-start);
+  }
+  100% {
+    background-color: var(--skeleton-end);
+  }
+}
+
+/* Wikipedia Section */
+.wiki-section {
+    border: 0.5px solid var(--bg-cream);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 20px;
+    display: flex;
+    padding: 16px 18px;
+    flex-direction: column;
+
+    & #wiki-thumbnail {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    & #wiki-title {
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 16px 20px 4px;
+        color: var(--text-black);
+    }
+
+    & #wiki-description {
+        font-family: var(--font-sans);
+        font-size: 1.0rem;
+        color: var(--text-olive);
+        line-height: 1.6;
+    }
+
+    & #wiki-link {
+        text-decoration: none;
+        color: var(--text-olive);
+        padding: 0 20px 20px;
+        font-size: 0.9rem;
+
+        & .read-more {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--bg-terracotta);
+            display: block;
+            margin-top: 4px;
+        }
+    }
+
+    & #wiki-link:hover .read-more {
+        text-decoration: underline;
+    }
+}
+
+/* Weather Section */
+.weather-section {
+
+    & .weather-item {
+        background: var(--bg-stat);
+        border-radius: var(--radius-sm);
+        padding: 14px 16px;
+        margin-bottom: 0;
+    }
+}
+
+/* AQI Section */
+.aqi-section {
+    background: var(--bg-stat);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+
+    & .aqi-item {
+        color: var(--text-olive);
+        margin-bottom: 0;
+    }
+}
+
+/* Style for weather and AQI items */
+.weather-item, .aqi-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.weather-section, .aqi-section {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+/* Map Section */
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    margin: 40px 0;
+}
+
+/* Footer */
+footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    text-align: center;
+
+    & .footer-links {
+        font-size: 0.8rem;
+        color: var(--text-silver);
+    }
+}
+
+
+/* Media Query */
+
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+
+    h1, h2, h3 {
+        text-align: center;
+    }
+
+    .weather-section,
+    .aqi-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    #city-form {
+        flex-direction: column;
+    }
+
+    #submit-btn {
+        width: 100%;
+    }
+
+    #map {
+        height: 400px;
+    }
+
+    .wiki-section #wiki-thumbnail {
+        height: 200px;
+        object-fit: contain;
+    }
+}

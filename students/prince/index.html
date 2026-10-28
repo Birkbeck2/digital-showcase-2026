@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="City Snapshot">
+    <title>City Snapshot</title>
+
+    <!-- Favicon from freeepik.com -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:ital,wght@0,100..900;1,100..900&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=M+PLUS+Rounded+1c&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+</head>
+<body>
+    
+    <!-- Skip link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header role="banner">
+        <h1>City Snapshot</h1>
+        <p>Type the name of a city to see a snapshot of its current weather conditions.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" id="main-content">
+
+        <section>
+
+            <!-- City Form -->
+            <div class="city-section">
+                <form id="city-form">
+                    <input 
+                        type="text" 
+                        id="city-input" 
+                        placeholder="e.g. London, Paris, New York" 
+                        aria-label="City name"
+                    >
+                    <button type="submit" id="submit-btn">Submit</button>
+                </form>
+                <div id="error-message" role="alert" aria-live="assertive"></div>
+            </div>
+
+            <!-- Results Container -->
+            <div id="results-container" hidden>
+
+                <!-- Wikipedia Section -->
+                <h2>Wiki Information</h2>
+                <section 
+                    class="wiki-section" 
+                    aria-live="polite" 
+                    aria-atomic="true" 
+                    aria-label="Wikipedia summary of the city"
+                >
+                    <div id="wiki-thumbnail-wrapper" class="skeleton skeleton-image"></div>
+                    <img id="wiki-thumbnail" src="" alt="" role="img" loading="lazy" style="display:none">
+
+                    <div id="wiki-title" role="heading" aria-level="3"></div>
+                    <div id="wiki-title-wrapper" class="skeleton skeleton-text"></div>
+
+                    <a id="wiki-link" href="" target="_blank" style="display:none" aria-label="Read more about the city on Wikipedia">
+                        <p id="wiki-description"></p>
+                        <span class="read-more">Read more ↗</span>
+                    </a>
+                    <div id="wiki-description-wrapper" class="skeleton skeleton-text skeleton-text__body"></div>
+                </section>
+
+                <!-- Weather Section -->
+                <h2>Weather Conditions</h2>
+                <section 
+                    class="weather-section" 
+                    aria-live="polite" 
+                    aria-atomic="true" 
+                    aria-label="Current weather conditions"
+                >
+                    <div class="weather-item">
+                        <span id="temp-label">Temperature</span>
+                        <span id="temperature" aria-labelledby="temp-label"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span id="humidity-label">Humidity</span>
+                        <span id="humidity" aria-labelledby="humidity-label"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span id="wind-label">Wind</span>
+                        <span id="wind-speed" aria-labelledby="wind-label"></span>
+                    </div>
+                </section>
+
+                <!-- Air Quality Section -->
+                <h2>Air Quality Index</h2>
+                <section 
+                    class="aqi-section"
+                    aria-live="polite" 
+                    aria-atomic="true" 
+                    aria-label="Air quality index and pollutant levels"
+                > 
+                    <div class="aqi-item">
+                        <span id="aqi-label">US AQI</span>
+                        <span id="aqi" aria-labelledby="aqi-label"></span>
+                    </div>
+                    <div class="aqi-item">
+                        <span id="pm10-label">PM10</span>
+                        <span id="pm10" aria-labelledby="pm10-label"></span>
+                    </div>
+                    <div class="aqi-item">
+                        <span id="pm25-label">PM2.5</span>
+                        <span id="pm25" aria-labelledby="pm25-label"></span>
+                    </div>
+                </section>
+
+                <!-- Leaflet Map -->
+                <div id="map"></div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-links">
+            © 2026 Prince | Digital Media Design
+        </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
